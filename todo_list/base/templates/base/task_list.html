@@ -10,23 +10,26 @@
     {% if request.user.is_authenticated %}
     <form method="POST" action="{% url 'logout' %}">
         {% csrf_token %}
-        <button type="submit">logout</button>
+        <button class="button" type="submit">logout</button>
     </form>
     {% else %}
     <a href="{% url 'login' %}">Login</a>
     {% endif %}
 </div>
 
+<div id="search-add-wrapper">
 
-<hr>
-<h2>todo</h2>
-<a href="{% url 'task-create' %}"> Add task</a>
 
-<form method="GET">
+    <form method="GET" style="display: flex;">
 
-    <input type="text" name='search-area' value="{{search_input}}">
-    <input type="submit" value="Search">
-</form>
+        <input type="text" name='search-area' value="{{search_input}}">
+        <input class="button" type="submit" value="Search">
+    </form>
+    <a id="add-link" href="{% url 'task-create' %}">&#x2b;</a>
+</div>
+
+
+
 
 <div class="task-items-wrapper">
     {% for task in tasks %}
