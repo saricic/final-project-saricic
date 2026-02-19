@@ -1,3 +1,6 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
 {% if request.user.is_authenticated %}
 <p>{{request.user}}</p>
 <form method="POST" action="{% url 'logout' %}">
@@ -22,12 +25,12 @@
         <th>Item</th>
         <th></th>
         <th></th>
-        <th></th>
+
     </tr>
     {% for task in tasks %}
     <tr>
         <td>{{task.title}}</td>
-        <td><a href="{% url 'task' task.id %}">View</a></td>
+
         <td><a href="{% url 'task-update' task.id %}">Update</a></td>
         <td><a href="{% url 'task-delete' task.id %}">Delete</a></td>
     </tr>
@@ -35,3 +38,4 @@
     <h3>No items in list</h3>
     {% endfor %}
 </table>
+{% endblock content %}
