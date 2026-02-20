@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 #SECRET_KEY = "django-insecure-)h#@ymsz)#*74lf5kzygs%l!x#)$!(co_jb-ff3!&pzu-ncd-3"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['todo-server.database.windows.net']
 
 
 # Application definition
