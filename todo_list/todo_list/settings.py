@@ -73,20 +73,23 @@ WSGI_APPLICATION = "todo_list.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
+import os
+
 DATABASES = {
     'default': {
-        'ENGINE': 'mssql',
-        'NAME': os.getenv('DB_NAME'),
-        'USER': os.getenv('DB_USER'),
-        'PASSWORD': os.getenv('DB_PASSWORD'),
-        'HOST': os.getenv('DB_HOST'),
-        'PORT': '1433',
+        'ENGINE': 'django.db.backends.sql_server.pyodbc',  # Azure SQL kullanıyorsan
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'HOST': os.environ.get('DB_HOST'),
+        'PORT': os.environ.get('DB_PORT', 1433),
         'OPTIONS': {
             'driver': 'ODBC Driver 18 for SQL Server',
-            'ExtraParams': 'Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30',
         },
     }
 }
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
+
 
 
 '''{
