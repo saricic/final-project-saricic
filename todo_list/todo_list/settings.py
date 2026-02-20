@@ -33,9 +33,6 @@ CSRF_TRUSTED_ORIGINS = [
 
 CSRF_COOKIE_SECURE = True  # sadece HTTPS üzerinden gönderilsin
 SESSION_COOKIE_SECURE = True  # session cookie de güvenli olsun
-
-CSRF_COOKIE_SAMESITE = 'Lax'  # veya 'Strict', ihtiyaca göre
-SESSION_COOKIE_SAMESITE = 'Lax'
 # Application definition
 
 INSTALLED_APPS = [
